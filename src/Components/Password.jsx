@@ -5,12 +5,13 @@ import {  useNavigate } from 'react-router-dom';
 const Password = () => {
     const [password,setPassword]=useState("")
     const [error,setError]=useState("")
-    const user = useSelector((store) => store.user);
-    console.log(user)
+    const pass= useSelector((store) => store.password);
+    console.log(pass)
     const navigate=useNavigate()
     const Submit=()=>{
-        if(password===user.user.password){
-            navigate("/feed")
+        if(password===pass){
+            navigate("/feed", { replace: true });
+
         }
         else{
             setError("Invalid Credentials")
@@ -42,3 +43,99 @@ const Password = () => {
 }
 
 export default Password
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

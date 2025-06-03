@@ -10,15 +10,17 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Jobs from "./Components/jobs";
 import JobPostings from "./Components/Jobpostings";
+import PublicRoute from "./Components/PublicRoute";
+
 
 function App() {
   return (
     <Provider store={appStore}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/password" element={<Password />} />
+          <Route path="/" element={<PublicRoute><Signup /></PublicRoute>} />
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/password" element={<PublicRoute><Password /></PublicRoute>} />
           <Route path="/feed" element={<Feed />} />
 
           <Route element={<SidebarLayout />}>

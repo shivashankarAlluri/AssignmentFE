@@ -1,4 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { removeUser } from '../utils/userSlice'; 
+import axios from 'axios';
 
 const sidebarLinks = [
   { id: 1, title: 'Home', path: '/home', icon: 'fa fa-house' },
@@ -20,8 +23,21 @@ const sidebarLinks = [
 ];
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:3000/logout',{}, { withCredentials: true }); 
+      dispatch(removeUser()); 
+      navigate('/login');
+    } catch (err) {
+      console.error('Logout error:', err);
+    }
+  };
+
   return (
-    <aside className="w-64 bg-gray-800 text-white h-screen p-4">
+    <aside className="w-64 bg-gray-800 text-white h-screen p-4 flex flex-col justify-between">
       <ul className="space-y-2">
         {sidebarLinks.map((link) => (
           <li key={link.id}>
@@ -44,6 +60,14 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout}
+        className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded"
+      >
+        Logout
+      </button>
     </aside>
   );
 };

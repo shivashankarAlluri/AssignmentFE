@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { BASE_URL } from '../utils/constants'
+import { BASE_URL } from './utils/constants'
 
 const Signup = () => {
     const [username,setUserName]=useState("")
@@ -31,7 +31,7 @@ const Signup = () => {
     }
   return (
     <div className="flex justify-center my-10">
-    <div className="card bg-base-100 w-96 shadow-sm">
+    <div className="card bg-base-100 w-96 shadow-sm bg-black">
         <div className="card-body">
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">

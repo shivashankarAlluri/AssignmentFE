@@ -3,7 +3,8 @@ import { BASE_URL } from '../utils/constants'
 import axios from 'axios'
 import {useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { addUser } from "../utils/userSlice";
+import { addPassword } from '../utils/passwordSlice'
+
 
 const Login = () => {
     const navigate=useNavigate();
@@ -19,8 +20,8 @@ const Login = () => {
             withCredentials:true
         });
         console.log(res)
-        console.log(res?.data?.message)
-        dispatch(addUser(res?.data))
+        console.log(res?.data?.user?.password)
+        dispatch(addPassword(res.data?.user?.password))
         if(res?.data?.message==="Email found"){
             console.log("Navigating to password page")
             navigate("/password")
