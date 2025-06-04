@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { BASE_URL } from './utils/constants'
+import { BASE_URL } from '../utils/constants'
 
 const Signup = () => {
     const [username,setUserName]=useState("")
